@@ -61,7 +61,14 @@ def generate_by_grammer(grammer, target='句子'):
 if __name__ == '__main__':
     grammer_rule = get_grammer_by_description(rules)
 
-    ic(generate_by_grammer(grammer_rule, target='复合句子'))
+    while True:
+        target = input('是否继续生成：')
+        if target != '1':
+            break
+
+        print(generate_by_grammer(grammer_rule, target='复合句子'))
+
+    # ic(generate_by_grammer(grammer_rule, target='复合句子'))
 
     # for i in range(10):
     #     print(generate_by_grammer(grammer_rule, target='句子'))
