@@ -21,8 +21,8 @@ if __name__ == '__main__':
     # 这个函数会将保存数据的文件的名字，作为数据的标签，组织数据。例如，名字为‘3’的文件里面的图片是3
     # 文件夹和图片配对，文件夹名作为label
     # 使用绝对路径
-    train_data = datasets.ImageFolder(root=r'E:\code\GitWork\gdcvi\lesson\lesson01\mnist_train', transform=transform)
-    test_data = datasets.ImageFolder(root=r'E:\code\GitWork\gdcvi\lesson\lesson01\mnist_test', transform=transform)
+    train_data = datasets.ImageFolder(root=r'E:\code\GitWork\gdcvi\lesson\code01\mnist_train', transform=transform)
+    test_data = datasets.ImageFolder(root=r'E:\code\GitWork\gdcvi\lesson\code01\mnist_test', transform=transform)
     # 打印他们
     print("train:", len(train_data), "\ntest", len(test_data))
 

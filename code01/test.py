@@ -14,7 +14,7 @@ if __name__ == '__main__':
         transforms.Grayscale(num_output_channels=1),
         transforms.ToTensor()
     ])
-    test_data = datasets.ImageFolder(root=r'E:\code\GitWork\gdcvi\lesson\lesson01\mnist_test', transform=transform)
+    test_data = datasets.ImageFolder(root=r'E:\code\GitWork\gdcvi\lesson\code01\mnist_test', transform=transform)
     print("test_dataset length: ", len(test_data))
 
     # 定义模型

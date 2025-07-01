@@ -13,7 +13,7 @@ from torchvision import transforms, datasets
 # 数据加载
 transform = transforms.Compose([transforms.Grayscale(num_output_channels=1), transforms.ToTensor()])
 
-train_data = datasets.ImageFolder(root=r'E:\code\GitWork\gdcvi\lesson\lesson01\mnist_train',transform=transform)
+train_data = datasets.ImageFolder(root=r'E:\code\GitWork\gdcvi\lesson\code01\mnist_train',transform=transform)
 
 train_loader = DataLoader(train_data, batch_size=64, shuffle=True)
 
