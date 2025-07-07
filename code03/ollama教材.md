@@ -284,6 +284,8 @@ ollama rm xxxxxx
 
 ![1751851111089](.\resource\1751851111089.jpg)
 
+## 2、使用
+
 #### ③常用命令
 
 见上述介绍
@@ -326,3 +328,44 @@ print(content)
 
 ![1751856255393](.\resource\1751856255393.jpg)
 
+## 3、web-ui
+#### ⑥open-webui
+在ollama官网，点击github，或者直接访问github的地址：https://github.com/ollama/ollama 
+
+找到**Community Integrations**，选择第一项**Open WebUI**
+
+---
+
+**用法：**
+
+第一步：安装open-webui
+```shell
+pip install open-webui
+```
+![1751869606110](.\resource\1751869606110.jpg)
+
+安装成功
+
+![1751870379814](.\resource\1751870379814.jpg)
+
+第二步：启动
+```shell
+open-webui serve
+```
+![1751870478818](.\resource\1751870478818.jpg)
+启动成功
+![1751870526285](.\resource\1751870526285.jpg)
+
+第三步：访问
+
+http://localhost:8080
+
+访问时会加载一些资源，等待加载完成
+![1751872015060](.\resource\1751872015060.jpg)
+
+刷新页面，初次进入会进入注册页面，注册完登录
+![1751872120682](.\resource\1751872120682.jpg)
+
+登录成功后，左上角可以选择模型，然后进行对话
+![1751872340817](.\resource\1751872340817.jpg)
+![1751872464729](.\resource\1751872464729.jpg)
