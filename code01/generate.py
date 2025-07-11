@@ -31,6 +31,7 @@ def get_grammer_by_description(description):
     从语法描述中构建语法字典
     该函数解析语法描述，并将其转换为字典形式，便于后续生成句子
     """
+    # strip()去掉空格，split()字符串分割
     # 按行分割描述内容，并以等号=拆分，得到规则名和候选表达式
     rules_pattern = [r.split('=') for r in description.split('\n') if r.strip()]
     # 将每个规则的候选式再按竖线|拆分为多个选项
@@ -55,18 +56,23 @@ def generate_by_grammer(grammer, target='句子'):
         # 如果目标生成语法不在规则中，则直接返回目标
         return target
 
+    # 将选中的规则展开成多个子目标
     return ''.join([generate_by_grammer(grammer, t) for t in random.choice(grammer[target]).split()])
 
 
 if __name__ == '__main__':
     grammer_rule = get_grammer_by_description(rules)
 
-    while True:
-        target = input('是否继续生成：')
-        if target != '1':
-            break
+    # print(generate_by_grammer(grammer_rule, target='复合句子'))
 
-        print(generate_by_grammer(grammer_rule, target='复合句子'))
+    # print(get_grammer_by_description(rules))
+    #
+    # while True:
+    #     target = input('是否继续生成：')
+    #     if target != '1':
+    #         break
+    #
+    #     print(generate_by_grammer(grammer_rule, target='复合句子'))
 
     # ic(generate_by_grammer(grammer_rule, target='复合句子'))
 
