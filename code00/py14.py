@@ -16,7 +16,7 @@ class Person:
     _sex = "男"
 
     def __init__(self, salary, teacher):
-        self._Person__idCard = 429006199907150011
+        self._Person__idCard = 429006199907150000
         self.salary = salary
         self.teacher = teacher
         print("__init__构造函数")
