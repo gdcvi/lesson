@@ -4,7 +4,10 @@
  * @description: streamlit安装
 """
 
+# streamlit官方文档：https://docs.streamlit.io/develop/api-reference
+
 # 在python环境中安装依赖，因为这是国外的源，所以可以安装很慢，期间也可能会安装失败，出现问题可以重复执行安装多试几次，或者是开科学上网
+
 # pip install streamlit
 # 安装成功后，输入命令：streamlit hello 启动streamlit，这里有streamlit的一些demo案例
 
