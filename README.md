@@ -5,3 +5,4 @@
 - code02：下载大模型并调用
 - code03：ollama本地部署模型
 - code04: fastapi入门
+- code05: streamlit入门
