@@ -13,6 +13,11 @@ if st.button("给变量设置默认值"):
 if "chat_input" not in st.session_state:
     st.session_state.chat_input = "你好呀！"
 
-st.chat_input(key="chat_input")
+st.chat_input(key="chat_input", placeholder="请输入...")
 st.write("输入的内容:", st.session_state.chat_input)
+
+st.chat_message("user").write(st.session_state.chat_input)
+st.chat_message("AI").write(st.session_state.chat_input)
+st.chat_message("zky").write(st.session_state.chat_input)
+
 
