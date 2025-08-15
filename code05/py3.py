@@ -20,4 +20,12 @@ st.chat_message("user").write(st.session_state.chat_input)
 st.chat_message("AI").write(st.session_state.chat_input)
 st.chat_message("zky").write(st.session_state.chat_input)
 
+# 海象运算符（或者叫海象操作符） := 来同时赋值和判断条件。
+if prompt := st.chat_input("请输入..."):
+    st.chat_message("user").write(prompt)
+    st.chat_message("AI").write(f"{prompt}正在思考...")
+    st.chat_message("zky").write("正在思考...")
+    st.chat_message("AI").write("思考完成！")
+    st.chat_message("zky").write("思考完成！")
+
 
