@@ -6,3 +6,7 @@
 - code03：ollama本地部署模型
 - code04: fastapi入门
 - code05: streamlit入门
+- code06: langchain框架入门
+- code07: langchain的核心模块
+- code08: langchain的LCEL链式编程
+- code09: python代码搭建AI智能助手
