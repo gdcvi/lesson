@@ -1,0 +1,14 @@
+[
+  {
+    "title": "Python入门",
+    "author": "张三",
+    "isbn": "12345",
+    "is_borrowed": false
+  },
+  {
+    "title": "算法导论",
+    "author": "李四",
+    "isbn": "67890",
+    "is_borrowed": false
+  }
+]
