@@ -1,0 +1,20 @@
+[
+  {
+    "title": "Test",
+    "author": "Author",
+    "isbn": "123",
+    "is_borrowed": false
+  },
+  {
+    "title": "《java开发》",
+    "author": "张魁元",
+    "isbn": "a123456",
+    "is_borrowed": true
+  },
+  {
+    "title": "《python编程》",
+    "author": "zky",
+    "isbn": "a123",
+    "is_borrowed": true
+  }
+]

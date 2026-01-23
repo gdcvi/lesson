@@ -1,6 +1,7 @@
 # lesson
 
 ## 章节说明
+> 第一学期
 - code01：文法生成句子与神经网络
 - code02：下载大模型并调用
 - code03：ollama本地部署模型
@@ -10,3 +11,7 @@
 - code07: langchain的核心模块
 - code08: langchain的LCEL链式编程
 - code09: python代码搭建AI智能助手
+
+> 第二学期
+- code10: python编程进阶
+- 
