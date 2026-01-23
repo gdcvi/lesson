@@ -16,5 +16,11 @@
     "author": "zky",
     "isbn": "a123",
     "is_borrowed": true
+  },
+  {
+    "title": "《第一温柔的自我修养》",
+    "author": "张魁元",
+    "isbn": "zky",
+    "is_borrowed": false
   }
 ]
