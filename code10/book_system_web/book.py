@@ -1,11 +1,20 @@
+"""
+ * @author: zkyuan
+ * @date: 2026/2/25 9:54
+ * @description:
+"""
+
+
 def log_operation(func):
     """
     装饰器，用于记录操作日志
     """
+
     def wrapper(*args, **kwargs):
         # 在Web界面中不需要打印到控制台
         result = func(*args, **kwargs)
         return result
+
     return wrapper
 
 
@@ -13,7 +22,7 @@ class Book:
     """
     图书类，用于表示一本图书的基本信息和借阅状态
     """
-    
+
     def __init__(self, title, author, isbn):
         """
         初始化图书
@@ -27,7 +36,7 @@ class Book:
         self.author = author
         self.isbn = isbn
         self.is_borrowed = False  # 默认未借出
-    
+
     @log_operation
     def borrow(self):
         """
@@ -40,7 +49,7 @@ class Book:
             self.is_borrowed = True
             return True
         return False
-    
+
     @log_operation
     def return_book(self):
         """
@@ -53,7 +62,7 @@ class Book:
             self.is_borrowed = False
             return True
         return False
-    
+
     def get_info(self):
         """
         获取图书信息字符串
@@ -63,7 +72,7 @@ class Book:
         """
         status = "已借出" if self.is_borrowed else "可借阅"
         return f"{self.title} - {self.author} (ISBN:{self.isbn}) [{status}]"
-    
+
     def __str__(self):
         """
         字符串表示

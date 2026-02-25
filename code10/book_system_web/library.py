@@ -1,4 +1,10 @@
+"""
+ * @author: zkyuan
+ * @date: 2026/2/25 9:55
+ * @description:
+"""
 import json
+
 from book import Book
 
 
@@ -6,10 +12,12 @@ def log_operation(func):
     """
     装饰器，用于记录操作日志
     """
+
     def wrapper(*args, **kwargs):
         # 在Web界面中不需要打印到控制台
         result = func(*args, **kwargs)
         return result
+
     return wrapper
 
 
@@ -17,7 +25,7 @@ class Library:
     """
     图书馆类，用于管理图书集合
     """
-    
+
     def __init__(self, filename="books.json"):
         """
         初始化图书馆，创建空的图书列表
@@ -28,7 +36,7 @@ class Library:
         self.books = []
         self.filename = filename
         self.load_from_file()
-    
+
     def add_book(self, book):
         """
         添加图书到图书馆
@@ -42,7 +50,7 @@ class Library:
         self.books.append(book)
         self.save_to_file()
         return f"图书 '{book.title}' 添加成功！"
-    
+
     def show_all_books(self):
         """
         获取所有图书列表
@@ -51,7 +59,7 @@ class Library:
             list: 所有图书的列表
         """
         return self.books
-    
+
     def search_book(self, keyword):
         """
         根据关键词搜索图书（书名或作者）
@@ -66,9 +74,9 @@ class Library:
         for book in self.books:
             if keyword.lower() in book.title.lower() or keyword.lower() in book.author.lower():
                 results.append(book)
-        
+
         return results
-    
+
     @log_operation
     def borrow_book(self, isbn):
         """
@@ -87,9 +95,9 @@ class Library:
                     return True, f"成功借出《{book.title}》"
                 else:
                     return False, f"《{book.title}》已经借出了。"
-        
+
         return False, f"找不到ISBN为 {isbn} 的图书。"
-    
+
     @log_operation
     def return_book(self, isbn):
         """
@@ -108,9 +116,9 @@ class Library:
                     return True, f"成功归还《{book.title}》"
                 else:
                     return False, f"《{book.title}》尚未借出。"
-        
+
         return False, f"找不到ISBN为 {isbn} 的图书。"
-    
+
     def show_borrowed_books(self):
         """
         获取所有已借出的图书
@@ -119,9 +127,9 @@ class Library:
             list: 已借出图书的列表
         """
         borrowed_books = [book for book in self.books if book.is_borrowed]
-        
+
         return borrowed_books
-    
+
     def save_to_file(self):
         """
         将图书数据保存到文件
@@ -135,12 +143,12 @@ class Library:
                     'isbn': book.isbn,
                     'is_borrowed': book.is_borrowed
                 })
-            
+
             with open(self.filename, 'w', encoding='utf-8') as f:
                 json.dump(data, f, ensure_ascii=False, indent=2)
         except Exception as e:
             print(f"保存文件时出错: {e}")
-    
+
     def load_from_file(self):
         """
         从文件加载图书数据
@@ -148,7 +156,7 @@ class Library:
         try:
             with open(self.filename, 'r', encoding='utf-8') as f:
                 data = json.load(f)
-                
+
             for item in data:
                 book = Book(item['title'], item['author'], item['isbn'])
                 book.is_borrowed = item['is_borrowed']
