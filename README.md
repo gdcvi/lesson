@@ -18,5 +18,5 @@
 - code12: Python编程进阶（三）：包的管理与高阶特性（装饰器）
 - code13: Python编程进阶（四）：综合项目实战——图书管理系统
 - code14: BERT模型情感分析专项微调
-- code15: llamafactory框架大模型指令微调（一）：数据集准备
+- code15: llamafactory框架大模型指令微调（一）：数据集制作
 - code16: llamafactory框架大模型指令微调（二）：模型训练
