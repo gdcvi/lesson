@@ -1,3 +1,8 @@
+"""
+ * @author: zkyuan
+ * @date: 2026/2/26 14:40
+ * @description: 测试微调效果
+"""
 from transformers import AutoModelForSequenceClassification, AutoTokenizer, pipeline
 
 # 设置具体包含 config.json 的目录
@@ -17,6 +22,13 @@ label_mapping = {0: "负面", 1: "正面"}
 # 使用加载的模型和分词器创建分类任务的 pipeline
 classifier = pipeline("text-classification", model=model, tokenizer=tokenizer, device="cpu")
 
+# 执行分类任务
+# LABEL_0：在二分类情感分析任务中，0 通常表示“负面”情感。
+# LABEL_1：相应地，1 通常表示“正面”情感。
+# output = classifier("我今天心情很好")
+# print(output)
+# [{'label': 'LABEL_1', 'score': 0.9958015084266663}]
+
 # 执行分类任务并美化输出
 print("=== 情感分析结果 ===")
 
@@ -35,7 +47,7 @@ for i, sentence in enumerate(test_sentences, 1):
     label_id = int(result['label'].split('_')[1])
     chinese_label = label_mapping[label_id]
     score = result['score']
-    
+
     print(f"{i}. 文本: {sentence}")
     print(f"   预测: {chinese_label} (置信度: {score:.4f})")
     print()

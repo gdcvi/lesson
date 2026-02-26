@@ -1,3 +1,8 @@
+"""
+ * @author: zkyuan
+ * @date: 2026/2/26 14:37
+ * @description: bert模型情感分析专项微调
+"""
 # 1：环境准备
 # pip install torch transformers datasets scikit-learn
 # 可以自定义huggingface模型下载的位置
@@ -14,20 +19,27 @@ model = BertForSequenceClassification.from_pretrained('bert-base-chinese', num_l
 from datasets import load_dataset
 import os
 
+# 加载 ChnSentiCorp 数据集
+# 数据集地址：https://huggingface.co/datasets/lansinuote/ChnSentiCorp
+# dataset = load_dataset('lansinuote/ChnSentiCorp')
 # 获取当前脚本所在目录
 current_dir = os.path.dirname(os.path.abspath(__file__))
 # 构建本地数据集路径
 local_dataset_path = os.path.join(current_dir, 'ChnSentiCorp')
 
 # 从本地路径加载 ChnSentiCorp 数据集
-dataset = load_dataset('parquet', 
-                      data_files={
-                          'train': os.path.join(local_dataset_path, 'data', 'train-00000-of-00001-02f200ca5f2a7868.parquet'),
-                          'validation': os.path.join(local_dataset_path, 'data', 'validation-00000-of-00001-405befbaa3bcf1a2.parquet'),
-                          'test': os.path.join(local_dataset_path, 'data', 'test-00000-of-00001-5372924f059fe767.parquet')
-                      })
+dataset = load_dataset('parquet',
+                       data_files={
+                           'train': os.path.join(local_dataset_path, 'data',
+                                                 'train-00000-of-00001-02f200ca5f2a7868.parquet'),
+                           'validation': os.path.join(local_dataset_path, 'data',
+                                                      'validation-00000-of-00001-405befbaa3bcf1a2.parquet'),
+                           'test': os.path.join(local_dataset_path, 'data',
+                                                'test-00000-of-00001-5372924f059fe767.parquet')
+                       })
 
 import re
+
 
 # 定义数据清洗函数
 def clean_text(text):
@@ -37,12 +49,15 @@ def clean_text(text):
     text = text.strip()
     return text
 
+
 # 对数据集中的文本进行清洗
 dataset = dataset.map(lambda x: {'text': clean_text(x['text'])})
+
 
 # 4：数据预处理
 def tokenize_function(examples):
     return tokenizer(examples['text'], padding='max_length', truncation=True, max_length=128)
+
 
 # 对数据集进行分词和编码
 encoded_dataset = dataset.map(tokenize_function, batched=True)
@@ -51,12 +66,14 @@ encoded_dataset = dataset.map(tokenize_function, batched=True)
 from transformers import Trainer, TrainingArguments
 from sklearn.metrics import accuracy_score
 
+
 # 定义评估函数
 def compute_metrics(p):
     # p.predictions 是模型对输入数据的预测输出，
     preds = p.predictions.argmax(-1)  # argmax(-1) 的作用是沿着最后一个维度（通常是类别维度）取最大值对应的索引，即模型预测的类别
     # p.label_ids 是真实的标签。
     return {"accuracy": accuracy_score(p.label_ids, preds)}
+
 
 # 定义训练参数
 # 定义训练参数，创建一个TrainingArguments对象
