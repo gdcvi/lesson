@@ -3,14 +3,14 @@
  * @date: 2026/2/25 15:55
  * @description: 测试school包的功能 - 演示包的使用方式
 """
-from school import Person as PersonFromInit
 # 方式3：通过包的__init__.py直接导入（推荐）
+from school import Person as PersonFromInit
 from school import Student as StudentFromInit
-from school import person
 # 方式1：从包中导入整个模块
+from school import person
 from school import student
-from school.person import Person
 # 方式2：从包的模块中直接导入类
+from school.person import Person
 from school.student import Student
 
 
