@@ -66,7 +66,7 @@ model = BertForSequenceClassification.from_pretrained('bert-base-chinese', num_l
 
 **目录结构要求**：
 ```
-code14/
+work/
 └── ChnSentiCorp/
     └── data/
         ├── train-00000-of-00001-02f200ca5f2a7868.parquet
@@ -435,7 +435,7 @@ Pipeline推理返回结果：
 ## 5. 文件组织结构
 
 ```
-code14/
+work/
 ├── ChnSentiCorp/                  # 数据集目录
 │   └── data/
 │       ├── train-*.parquet
@@ -689,7 +689,7 @@ Device set to use cpu
 
 ### 7.1 训练流程
 1. 确保已安装依赖包：`pip install torch transformers datasets scikit-learn`
-2. 准备ChnSentiCorp数据集，放置在 `code14/ChnSentiCorp/data/` 目录下
+2. 准备ChnSentiCorp数据集，放置在 `work/ChnSentiCorp/data/` 目录下
 3. 运行训练脚本：`python bert-trainer.py`
 4. 等待训练完成（观察控制台输出的训练进度和评估指标）
 5. 训练完成后，模型自动保存到 `./sentiment_model` 目录
