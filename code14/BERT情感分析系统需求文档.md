@@ -1,7 +1,8 @@
 # BERT中文情感分析系统 - 需求规格说明书
 
 ## 1. 项目概述
-
+BERT的全称是Bidirectional Encoder Representations from Transformers，翻译成中文通常被称为双向编码器表征法或双向变换器模型。
+BERT是一种预训练语言模型.
 ### 1.1 项目名称
 BERT中文情感分析微调与推理系统
 
