@@ -9,7 +9,7 @@
     "title": "《java开发》",
     "author": "张魁元",
     "isbn": "a123456",
-    "is_borrowed": true
+    "is_borrowed": false
   },
   {
     "title": "《python编程》",

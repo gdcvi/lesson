@@ -4,16 +4,27 @@
  * @description: bert模型情感分析专项微调
 """
 # 1：环境准备
-# pip install torch transformers datasets scikit-learn
+# pip install torch transformers datasets scikit-learn modelscope
 # 可以自定义huggingface模型下载的位置
 # setx HF_HOME "D:\huggingface"  默认位置C:\Users\HP\.cache\huggingface
 from transformers import BertTokenizer, BertForSequenceClassification
+import os
+
+# 设置使用魔搭镜像下载模型
+os.environ['HF_ENDPOINT'] = 'https://hf-mirror.com'
 
 # 2：加载中文 BERT 预训练模型
 # 加载 分词器和 bert 中文预训练模型
-tokenizer = BertTokenizer.from_pretrained('bert-base-chinese')
+# 方式1：使用魔搭镜像（推荐）
+# tokenizer = BertTokenizer.from_pretrained('bert-base-chinese')
 # 注意：ChnSentiCorp数据集是二分类（正面/负面），所以num_labels应该设为2
-model = BertForSequenceClassification.from_pretrained('bert-base-chinese', num_labels=2)
+# model = BertForSequenceClassification.from_pretrained('bert-base-chinese', num_labels=2)
+
+# 方式2：直接使用魔搭ModelScope的模型（如果方式1仍然无法访问，可取消注释下面代码）
+from modelscope import snapshot_download
+model_dir = snapshot_download('google-bert/bert-base-chinese')
+tokenizer = BertTokenizer.from_pretrained(model_dir)
+model = BertForSequenceClassification.from_pretrained(model_dir, num_labels=2)
 
 # 3：加载 ChnSentiCorp 数据集并进行清洗
 from datasets import load_dataset
@@ -81,7 +92,7 @@ training_args = TrainingArguments(
     # 指定训练输出的目录，用于保存模型和其他输出文件
     output_dir='./results',
     # 设置训练的轮数
-    num_train_epochs=3,
+    num_train_epochs=2,
     # 每个设备（如GPU）上的训练批次大小
     per_device_train_batch_size=2,
     # 每个设备上的评估批次大小
