@@ -1,0 +1,663 @@
+app:
+  description: 课程教学案例工作流，输入xlsx、xls、csv表格，输出可视化图表
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  icon_type: emoji
+  mode: workflow
+  name: Echarts数据可视化
+  use_icon_as_answer_icon: false
+dependencies:
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/openai:0.3.5@dcc15b5847dbe38c64c2a9fdc1ea2d46466b7028eb4766b251bc363b0eec3af3
+    version: null
+kind: app
+version: 0.6.0
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload:
+      allowed_file_extensions:
+      - .JPG
+      - .JPEG
+      - .PNG
+      - .GIF
+      - .WEBP
+      - .SVG
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - local_file
+      - remote_url
+      enabled: false
+      fileUploadConfig:
+        attachment_image_file_size_limit: 2
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 15
+        file_upload_limit: 20
+        image_file_batch_limit: 10
+        image_file_size_limit: 10
+        single_chunk_attachment_limit: 10
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 3
+    opening_statement: ''
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: start
+        targetType: document-extractor
+      id: 1776151672957-source-1776151824743-target
+      source: '1776151672957'
+      sourceHandle: source
+      target: '1776151824743'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: document-extractor
+        targetType: llm
+      id: 1776151824743-source-1776151860638-target
+      source: '1776151824743'
+      sourceHandle: source
+      target: '1776151860638'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: if-else
+      id: 1776151860638-source-1776152295235-target
+      source: '1776151860638'
+      sourceHandle: source
+      target: '1776152295235'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: if-else
+        targetType: code
+      id: 1776152295235-true-1776152315888-target
+      source: '1776152295235'
+      sourceHandle: 'true'
+      target: '1776152315888'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: if-else
+        targetType: code
+      id: 1776152295235-60f30bc0-2206-4370-b285-512de0a6959d-1776152350972-target
+      source: '1776152295235'
+      sourceHandle: 60f30bc0-2206-4370-b285-512de0a6959d
+      target: '1776152350972'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: if-else
+        targetType: code
+      id: 1776152295235-828c2e38-26de-4978-9034-e874ed348a34-1776152420853-target
+      source: '1776152295235'
+      sourceHandle: 828c2e38-26de-4978-9034-e874ed348a34
+      target: '1776152420853'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: if-else
+        targetType: end
+      id: 1776152295235-false-1776152463331-target
+      source: '1776152295235'
+      sourceHandle: 'false'
+      target: '1776152463331'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: code
+        targetType: end
+      id: 1776152315888-source-1776152879973-target
+      source: '1776152315888'
+      sourceHandle: source
+      target: '1776152879973'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: code
+        targetType: end
+      id: 1776152350972-source-1776152921110-target
+      source: '1776152350972'
+      sourceHandle: source
+      target: '1776152921110'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: code
+        targetType: end
+      id: 1776152420853-source-1776152929685-target
+      source: '1776152420853'
+      sourceHandle: source
+      target: '1776152929685'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        selected: false
+        title: 用户输入
+        type: start
+        variables:
+        - allowed_file_extensions: []
+          allowed_file_types:
+          - document
+          allowed_file_upload_methods:
+          - local_file
+          - remote_url
+          default: ''
+          hint: ''
+          label: input_file
+          options: []
+          placeholder: ''
+          required: true
+          type: file
+          variable: input_file
+        - hint: ''
+          label: type
+          options:
+          - 柱状图
+          - 饼状图
+          - 折线图
+          placeholder: ''
+          required: true
+          type: select
+          variable: type
+      height: 134
+      id: '1776151672957'
+      position:
+        x: 80
+        y: 282
+      positionAbsolute:
+        x: 80
+        y: 282
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        is_array_file: false
+        selected: false
+        title: 文档提取器
+        type: document-extractor
+        variable_selector:
+        - '1776151672957'
+        - input_file
+      height: 104
+      id: '1776151824743'
+      position:
+        x: 382
+        y: 292.5268362002321
+      positionAbsolute:
+        x: 382
+        y: 292.5268362002321
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1776151824743'
+          - text
+        model:
+          completion_params: {}
+          mode: chat
+          name: gpt-4
+          provider: langgenius/openai/openai
+        prompt_template:
+        - id: 03cf7731-58b9-41a3-8728-61efe9cb2534
+          role: system
+          text: '# 数据的格式整理
+
+            将{{#context#}}的内容整理成为csv格式的字符串
+
+            # 要求
+
+            不要对数据进行任何篡改、分析、合并等操作，保留原数据不变'
+        selected: false
+        structured_output_enabled: false
+        title: LLM
+        type: llm
+        vision:
+          enabled: false
+      height: 87
+      id: '1776151860638'
+      position:
+        x: 684
+        y: 282
+      positionAbsolute:
+        x: 684
+        y: 282
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: is
+            id: 809935ab-f742-4e56-8068-eb57cf7b078f
+            value: 柱状图
+            varType: string
+            variable_selector:
+            - '1776151672957'
+            - type
+          id: 'true'
+          logical_operator: and
+        - case_id: 60f30bc0-2206-4370-b285-512de0a6959d
+          conditions:
+          - comparison_operator: is
+            id: e76dce39-3938-4985-a86e-8aae1ce86aa3
+            value: 饼状图
+            varType: string
+            variable_selector:
+            - '1776151672957'
+            - type
+          id: 60f30bc0-2206-4370-b285-512de0a6959d
+          logical_operator: and
+        - case_id: 828c2e38-26de-4978-9034-e874ed348a34
+          conditions:
+          - comparison_operator: contains
+            id: c30cc0c7-db50-4eaa-aa8d-3f40fd9a8ef1
+            value: 折线图
+            varType: string
+            variable_selector:
+            - '1776151672957'
+            - type
+          id: 828c2e38-26de-4978-9034-e874ed348a34
+          logical_operator: and
+        selected: false
+        title: 条件分支
+        type: if-else
+      height: 219
+      id: '1776152295235'
+      position:
+        x: 998
+        y: 215
+      positionAbsolute:
+        x: 998
+        y: 215
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        code: "import json\nimport re\n\ndef main(csv_string):\n    # 1. 去除 Markdown\
+          \ 代码块标记和 BOM\n    csv_string = csv_string.strip()\n    if csv_string.startswith('\\\
+          ufeff'):\n        csv_string = csv_string[1:]\n    if csv_string.startswith('```csv'):\n\
+          \        csv_string = csv_string[5:]\n    elif csv_string.startswith('```'):\n\
+          \        csv_string = csv_string[3:]\n    if csv_string.endswith('```'):\n\
+          \        csv_string = csv_string[:-3]\n    csv_string = csv_string.strip()\n\
+          \n    # 2. 按行分割（保留非空行）\n    lines = [line.strip() for line in csv_string.splitlines()\
+          \ if line.strip()]\n    if len(lines) < 2:\n        return {\"result\":\
+          \ f\"错误：CSV 至少需要两行（标题+数据）。实际行数：{len(lines)}\"}\n\n    # 3. 手动解析 CSV 行（支持引号内逗号）\n\
+          \    def parse_csv_row(row_str):\n        fields = []\n        current =\
+          \ ''\n        in_quotes = False\n        for ch in row_str:\n          \
+          \  if ch == '\"':\n                in_quotes = not in_quotes\n         \
+          \   elif ch == ',' and not in_quotes:\n                fields.append(current.strip())\n\
+          \                current = ''\n            else:\n                current\
+          \ += ch\n        fields.append(current.strip())\n        # 去除字段首尾的引号\n \
+          \       fields = [f.strip('\"') for f in fields]\n        return fields\n\
+          \n    parsed_lines = [parse_csv_row(line) for line in lines]\n\n    # 自动修复：如果第一行只有一个字段且第二行有多个字段，则丢弃第一行\n\
+          \    if (len(parsed_lines) >= 2 and len(parsed_lines[0]) == 1 and \n   \
+          \     len(parsed_lines[1]) > 1):\n        parsed_lines = parsed_lines[1:]\
+          \  # 丢弃第一行\n\n    if len(parsed_lines) < 2:\n        return {\"result\"\
+          : \"错误：解析后不足两行数据\"}\n\n    headers = parsed_lines[0]\n    data_rows = parsed_lines[1:]\n\
+          \n    # 确保所有数据行与标题行列数一致\n    max_cols = len(headers)\n    for row in data_rows:\n\
+          \        if len(row) < max_cols:\n            row.extend([''] * (max_cols\
+          \ - len(row)))\n        elif len(row) > max_cols:\n            row[:] =\
+          \ row[:max_cols]\n\n    # 数字转换函数（自动去除逗号、空格，提取数字）\n    def to_float(s):\n\
+          \        if not isinstance(s, str):\n            s = str(s) if s is not\
+          \ None else ''\n        s = s.strip()\n        s = s.replace(',', '')\n\
+          \        # 提取数字（包括负号和小数点）\n        match = re.search(r'-?\\d+(?:\\.\\d+)?',\
+          \ s)\n        if match:\n            try:\n                return float(match.group())\n\
+          \            except:\n                return None\n        return None\n\
+          \n    # 识别数值列（从第二列开始）\n    numeric_col_indices = []\n    numeric_col_names\
+          \ = []\n    for col_idx in range(1, max_cols):\n        for row in data_rows:\n\
+          \            val = row[col_idx] if col_idx < len(row) else ''\n        \
+          \    if to_float(val) is not None:\n                numeric_col_indices.append(col_idx)\n\
+          \                numeric_col_names.append(headers[col_idx])\n          \
+          \      break\n\n    if not numeric_col_indices:\n        sample = f\"标题行:\
+          \ {headers}\\n第一行数据: {data_rows[0] if data_rows else '无'}\"\n        return\
+          \ {\"result\": f\"错误：没有找到数值列。请检查 CSV 中是否包含数字。\\n解析结果样例：\\n{sample}\"}\n\n\
+          \    # X 轴类别（第一列）\n    x_axis_data = [row[0].strip() or f\"项{i+1}\" for\
+          \ i, row in enumerate(data_rows)]\n\n    # 构建系列\n    series_list = []\n\
+          \    for idx, col_idx in enumerate(numeric_col_indices):\n        series_data\
+          \ = []\n        for row in data_rows:\n            val = row[col_idx] if\
+          \ col_idx < len(row) else ''\n            num = to_float(val)\n        \
+          \    if num is None:\n                num = 0\n            series_data.append(num)\n\
+          \        series_list.append({\n            \"name\": numeric_col_names[idx],\n\
+          \            \"type\": \"bar\",\n            \"data\": series_data\n   \
+          \     })\n\n    # ECharts 配置\n    echarts_config = {\n        \"tooltip\"\
+          : {\"trigger\": \"axis\", \"axisPointer\": {\"type\": \"shadow\"}},\n  \
+          \      \"legend\": {\"data\": numeric_col_names},\n        \"xAxis\": {\"\
+          type\": \"category\", \"data\": x_axis_data, \"axisLabel\": {\"rotate\"\
+          : 30 if len(x_axis_data) > 8 else 0}},\n        \"yAxis\": {\"type\": \"\
+          value\"},\n        \"series\": series_list\n    }\n\n    output = f'```echarts\\\
+          n{json.dumps(echarts_config, ensure_ascii=False)}\\n```'\n    return {\"\
+          result\": output}"
+        code_language: python3
+        desc: 柱状图
+        outputs:
+          result:
+            children: null
+            type: string
+        selected: false
+        title: 代码执行
+        type: code
+        variables:
+        - value_selector:
+          - '1776151860638'
+          - text
+          value_type: string
+          variable: csv_string
+      height: 79
+      id: '1776152315888'
+      position:
+        x: 1310.4462480261147
+        y: 70.87873427633693
+      positionAbsolute:
+        x: 1310.4462480261147
+        y: 70.87873427633693
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        code: "import csv\nimport json\n\ndef main(csv_string: str):\n    \"\"\"\n\
+          \    将 CSV 格式的字符串转换为 ECharts 饼状图配置。\n    CSV 至少包含两列：第一列为类别标签，第二列为数值。\n \
+          \   \"\"\"\n    # 解析 CSV 字符串\n    lines = csv_string.strip().split('\\n')\n\
+          \    reader = csv.reader(lines)\n    rows = list(reader)\n\n    if len(rows)\
+          \ < 2:\n        # 没有数据行，返回空配置\n        return {\"result\": \"```echarts\\\
+          n{}\\n```\"}\n\n    # 提取标签和数值\n    labels = []\n    values = []\n    for\
+          \ row in rows[1:]:\n        if len(row) >= 2:\n            label = row[0].strip()\n\
+          \            try:\n                value = float(row[1])\n            except\
+          \ ValueError:\n                continue\n            if value > 0:  # 饼图只取正值\n\
+          \                labels.append(label)\n                values.append(value)\n\
+          \n    if not values:\n        return {\"result\": \"```echarts\\n{}\\n```\"\
+          }\n\n    # 构造饼图数据格式\n    pie_data = [{\"name\": label, \"value\": val} for\
+          \ label, val in zip(labels, values)]\n\n    # ECharts 饼图配置\n    echarts_config\
+          \ = {\n        \"tooltip\": {\n            \"trigger\": \"item\",\n    \
+          \        \"formatter\": \"{a} <br/>{b}: {c} ({d}%)\"\n        },\n     \
+          \   \"legend\": {\n            \"orient\": \"vertical\",\n            \"\
+          left\": \"left\",\n            \"data\": labels\n        },\n        \"\
+          series\": [{\n            \"name\": \"数据分布\",\n            \"type\": \"\
+          pie\",\n            \"radius\": \"50%\",\n            \"data\": pie_data,\n\
+          \            \"emphasis\": {\n                \"itemStyle\": {\n       \
+          \             \"shadowBlur\": 10,\n                    \"shadowOffsetX\"\
+          : 0,\n                    \"shadowColor\": \"rgba(0, 0, 0, 0.5)\"\n    \
+          \            }\n            }\n        }]\n    }\n\n    # 生成输出（格式与原始代码一致）\n\
+          \    output = f'```echarts\\n{json.dumps(echarts_config, ensure_ascii=False)}\\\
+          n```'\n    return {\"result\": output}"
+        code_language: python3
+        desc: 饼状图
+        outputs:
+          result:
+            children: null
+            type: string
+        selected: false
+        title: 代码执行 2
+        type: code
+        variables:
+        - value_selector:
+          - '1776151860638'
+          - text
+          value_type: string
+          variable: csv_string
+      height: 79
+      id: '1776152350972'
+      position:
+        x: 1310.4462480261147
+        y: 259.78654786565676
+      positionAbsolute:
+        x: 1310.4462480261147
+        y: 259.78654786565676
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        code: "import json\nimport re\n\ndef main(csv_string):\n    # 1. 去除 Markdown\
+          \ 代码块标记和 BOM\n    csv_string = csv_string.strip()\n    if csv_string.startswith('\\\
+          ufeff'):\n        csv_string = csv_string[1:]\n    if csv_string.startswith('```csv'):\n\
+          \        csv_string = csv_string[5:]\n    elif csv_string.startswith('```'):\n\
+          \        csv_string = csv_string[3:]\n    if csv_string.endswith('```'):\n\
+          \        csv_string = csv_string[:-3]\n    csv_string = csv_string.strip()\n\
+          \n    # 2. 按行分割（保留非空行）\n    lines = [line.strip() for line in csv_string.splitlines()\
+          \ if line.strip()]\n    if len(lines) < 2:\n        return {\"result\":\
+          \ f\"错误：CSV 至少需要两行（标题+数据）。实际行数：{len(lines)}\"}\n\n    # 3. 手动解析 CSV 行（支持引号内逗号）\n\
+          \    def parse_csv_row(row_str):\n        fields = []\n        current =\
+          \ ''\n        in_quotes = False\n        for ch in row_str:\n          \
+          \  if ch == '\"':\n                in_quotes = not in_quotes\n         \
+          \   elif ch == ',' and not in_quotes:\n                fields.append(current.strip())\n\
+          \                current = ''\n            else:\n                current\
+          \ += ch\n        fields.append(current.strip())\n        # 去除字段首尾的引号\n \
+          \       fields = [f.strip('\"') for f in fields]\n        return fields\n\
+          \n    parsed_lines = [parse_csv_row(line) for line in lines]\n\n    # 自动修复：如果第一行只有一个字段且第二行有多个字段，则丢弃第一行\n\
+          \    if (len(parsed_lines) >= 2 and len(parsed_lines[0]) == 1 and \n   \
+          \     len(parsed_lines[1]) > 1):\n        parsed_lines = parsed_lines[1:]\
+          \  # 丢弃第一行\n\n    if len(parsed_lines) < 2:\n        return {\"result\"\
+          : \"错误：解析后不足两行数据\"}\n\n    headers = parsed_lines[0]\n    data_rows = parsed_lines[1:]\n\
+          \n    # 确保所有数据行与标题行列数一致\n    max_cols = len(headers)\n    for row in data_rows:\n\
+          \        if len(row) < max_cols:\n            row.extend([''] * (max_cols\
+          \ - len(row)))\n        elif len(row) > max_cols:\n            row[:] =\
+          \ row[:max_cols]\n\n    # 数字转换函数（自动去除逗号、空格，提取数字）\n    def to_float(s):\n\
+          \        if not isinstance(s, str):\n            s = str(s) if s is not\
+          \ None else ''\n        s = s.strip()\n        s = s.replace(',', '')\n\
+          \        # 提取数字（包括负号和小数点）\n        match = re.search(r'-?\\d+(?:\\.\\d+)?',\
+          \ s)\n        if match:\n            try:\n                return float(match.group())\n\
+          \            except:\n                return None\n        return None\n\
+          \n    # 识别数值列（从第二列开始）\n    numeric_col_indices = []\n    numeric_col_names\
+          \ = []\n    for col_idx in range(1, max_cols):\n        for row in data_rows:\n\
+          \            val = row[col_idx] if col_idx < len(row) else ''\n        \
+          \    if to_float(val) is not None:\n                numeric_col_indices.append(col_idx)\n\
+          \                numeric_col_names.append(headers[col_idx])\n          \
+          \      break\n\n    if not numeric_col_indices:\n        sample = f\"标题行:\
+          \ {headers}\\n第一行数据: {data_rows[0] if data_rows else '无'}\"\n        return\
+          \ {\"result\": f\"错误：没有找到数值列。请检查 CSV 中是否包含数字。\\n解析结果样例：\\n{sample}\"}\n\n\
+          \    # X 轴类别（第一列）\n    x_axis_data = [row[0].strip() or f\"项{i+1}\" for\
+          \ i, row in enumerate(data_rows)]\n\n    # 构建系列（折线图）\n    series_list =\
+          \ []\n    for idx, col_idx in enumerate(numeric_col_indices):\n        series_data\
+          \ = []\n        for row in data_rows:\n            val = row[col_idx] if\
+          \ col_idx < len(row) else ''\n            num = to_float(val)\n        \
+          \    if num is None:\n                num = 0\n            series_data.append(num)\n\
+          \        series_list.append({\n            \"name\": numeric_col_names[idx],\n\
+          \            \"type\": \"line\",           # 关键改动：柱状图改为折线图\n           \
+          \ \"data\": series_data,\n            \"smooth\": False,          # 是否平滑曲线（可根据需要改为\
+          \ True）\n            \"symbol\": \"circle\",       # 数据点形状\n           \
+          \ \"symbolSize\": 6,          # 数据点大小\n            \"lineStyle\": {\"width\"\
+          : 2} # 线条粗细\n        })\n\n    # ECharts 配置\n    echarts_config = {\n  \
+          \      \"tooltip\": {\"trigger\": \"axis\", \"axisPointer\": {\"type\":\
+          \ \"shadow\"}},\n        \"legend\": {\"data\": numeric_col_names},\n  \
+          \      \"xAxis\": {\"type\": \"category\", \"data\": x_axis_data, \"axisLabel\"\
+          : {\"rotate\": 30 if len(x_axis_data) > 8 else 0}},\n        \"yAxis\":\
+          \ {\"type\": \"value\"},\n        \"series\": series_list\n    }\n\n   \
+          \ output = f'```echarts\\n{json.dumps(echarts_config, ensure_ascii=False)}\\\
+          n```'\n    return {\"result\": output}"
+        code_language: python3
+        desc: 折线图
+        outputs:
+          result:
+            children: null
+            type: string
+        selected: false
+        title: 代码执行 3
+        type: code
+        variables:
+        - value_selector:
+          - '1776151860638'
+          - text
+          value_type: string
+          variable: csv_string
+      height: 79
+      id: '1776152420853'
+      position:
+        x: 1310.4462480261147
+        y: 439.45511055880036
+      positionAbsolute:
+        x: 1310.4462480261147
+        y: 439.45511055880036
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        desc: 填写错误
+        outputs:
+        - value_selector:
+          - '1776151672957'
+          - type
+          value_type: string
+          variable: type
+        selected: false
+        title: 输出
+        type: end
+      height: 116
+      id: '1776152463331'
+      position:
+        x: 918.2221054551635
+        y: 654.7499079103229
+      positionAbsolute:
+        x: 918.2221054551635
+        y: 654.7499079103229
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        outputs:
+        - value_selector:
+          - '1776152315888'
+          - result
+          value_type: string
+          variable: result
+        selected: false
+        title: 输出 2
+        type: end
+      height: 88
+      id: '1776152879973'
+      position:
+        x: 1617.7096661262308
+        y: 70.87873427633693
+      positionAbsolute:
+        x: 1617.7096661262308
+        y: 70.87873427633693
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        outputs:
+        - value_selector:
+          - '1776152350972'
+          - result
+          value_type: string
+          variable: result
+        selected: false
+        title: 输出 3
+        type: end
+      height: 88
+      id: '1776152921110'
+      position:
+        x: 1617.7096661262308
+        y: 259.78654786565676
+      positionAbsolute:
+        x: 1617.7096661262308
+        y: 259.78654786565676
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        outputs:
+        - value_selector:
+          - '1776152420853'
+          - result
+          value_type: string
+          variable: result
+        selected: false
+        title: 输出 4
+        type: end
+      height: 88
+      id: '1776152929685'
+      position:
+        x: 1612.4462480261147
+        y: 439.45511055880036
+      positionAbsolute:
+        x: 1612.4462480261147
+        y: 439.45511055880036
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    viewport:
+      x: -461.35401980541997
+      y: 237.13363742928965
+      zoom: 0.7599624282007582
+  rag_pipeline_variables: []

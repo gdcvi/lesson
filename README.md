@@ -23,7 +23,7 @@
 - code16: llamafactory框架大模型指令微调（二）：模型训练
 - code17: dify搭建RAG知识库项目（9周）
 - code18: dify搭建工作流workflow-数据可视化（10周）
-- code19：dify搭建多模态工作流-数据清洗（11周）
+- code19：dify搭建多模态工作流（11周）
 - code20: 向量数据库概念与实践（12周）
 - code21: python代码搭建简易RAG案例（13周）
 - code22: 函数回调（14周）
