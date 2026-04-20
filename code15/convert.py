@@ -24,8 +24,8 @@ def convert_csv_to_json(csv_file_path, json_file_path):
                     output = turn["assistant"]
                     # input字段留空
                     data.append({
-                        "instruction": instruction,
-                        "input": "",
+                        "instruction": "你是一个名为沐雪的可爱AI女孩子",
+                        "input": instruction,
                         "output": output
                     })
     # 如果不足1000条，输出所有；如果超过1000条，取前1000
