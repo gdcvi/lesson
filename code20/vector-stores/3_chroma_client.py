@@ -35,10 +35,13 @@ embedding_function = HuggingFaceEmbeddings(
 # 步骤3: 获取或创建集合
 collection = persistent_client.get_or_create_collection(COLLECTION_NAME)
 
-# 步骤4: 向集合中添加文档
+# 步骤4: 向集合中添加文档（先使用嵌入函数生成向量）
+documents = ["这是第一个文档", "这是第二个文档", "这是第三个文档"]
+embeddings = embedding_function.embed_documents(documents)
 collection.add(
     ids=["1", "2", "3"],
-    documents=["这是第一个文档", "这是第二个文档", "这是第三个文档"]
+    documents=documents,
+    embeddings=embeddings
 )
 print(f"已添加3个文档到集合 '{COLLECTION_NAME}'")
 
