@@ -1,5 +1,6 @@
 import asyncio
 import os
+import sys
 import json
 from typing import Optional
 from contextlib import AsyncExitStack
@@ -153,6 +154,4 @@ async def main():
         await client.cleanup()
 
 if __name__ == "__main__":
-    import sys
-
     asyncio.run(main())
