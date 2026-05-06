@@ -54,7 +54,7 @@ def get_url(city: str) -> str:
     print(f"城市{city}的编码是: {district_code}")
     
     # 构建百度天气API的完整URL，包含行政区划ID、数据类型（实时天气）和访问密钥（AK）
-    url = f'https://api.map.baidu.com/weather/v1/?district_id={district_code}&data_type=now&ak=gY1JIffsDTozewoC8Xeds77nPKcSlvPX'
+    url = f'https://api.map.baidu.com/weather/v1/?district_id={district_code}&data_type=now&ak=gY1JIffsD......PKcSlvPX'
     return url
 
 
