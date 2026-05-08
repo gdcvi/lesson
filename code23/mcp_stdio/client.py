@@ -1,3 +1,8 @@
+"""
+ * @author: zkyuan
+ * @date: 2026/5/8 15:37
+ * @description: mcp的stdio方式，客户端
+"""
 # 导入所需的模块和库
 import asyncio  # 异步编程支持
 import os  # 操作系统接口，用于读取环境变量

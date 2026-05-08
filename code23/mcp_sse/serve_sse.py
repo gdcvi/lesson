@@ -1,3 +1,8 @@
+"""
+ * @author: zkyuan
+ * @date: 2026/5/8 15:38
+ * @description: mcp的sse方式 服务端
+"""
 import csv
 import json
 from typing import Any
@@ -44,7 +49,7 @@ def get_url(city: str) -> str:
     """获取天气调用的url"""
     district_code = find_code('E:\code\GitWork\gdcvi\lesson\code23\mcp_sse\weather_district_id.csv', city)
     print(f"城市{city}的编码是: {district_code}")
-    url = f'https://api.map.baidu.com/weather/v1/?district_id={district_code}&data_type=now&ak=gY1JIf......cSlvPX'
+    url = f'https://api.map.baidu.com/weather/v1/?district_id={district_code}&data_type=now&ak=gY1JIff......7nPKcSlvPX'
     return url
 
 

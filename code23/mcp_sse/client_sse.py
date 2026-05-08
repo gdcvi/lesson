@@ -1,3 +1,8 @@
+"""
+ * @author: zkyuan
+ * @date: 2026/5/8 15:37
+ * @description: mcp的sse方式 客户端
+"""
 import asyncio
 import os
 import json

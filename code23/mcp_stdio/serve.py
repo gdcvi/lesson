@@ -1,3 +1,8 @@
+"""
+ * @author: zkyuan
+ * @date: 2026/5/8 15:36
+ * @description: mcp的stdio方式，服务端
+"""
 # 导入所需的模块和库
 import asyncio  # 异步编程支持
 import csv  # CSV文件处理
@@ -54,7 +59,7 @@ def get_url(city: str) -> str:
     print(f"城市{city}的编码是: {district_code}")
     
     # 构建百度天气API的完整URL，包含行政区划ID、数据类型（实时天气）和访问密钥（AK）
-    url = f'https://api.map.baidu.com/weather/v1/?district_id={district_code}&data_type=now&ak=gY1JIffsD......PKcSlvPX'
+    url = f'https://api.map.baidu.com/weather/v1/?district_id={district_code}&data_type=now&ak=gY1JIf......nPKcSlvPX'
     return url
 
 
