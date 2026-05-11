@@ -23,12 +23,12 @@
 - code16: llamafactory框架大模型指令微调（二）：模型训练
 - code17: dify搭建RAG知识库项目（9周）
 - code18: dify搭建工作流workflow-数据可视化（10周）
-- code19：dify搭建多模态工作流（11周）
+- code19: dify搭建多模态工作流（11周）
 - code20: 向量数据库概念与实践（12周）
 - code21: python代码搭建简易RAG案例（13周）
 - code22: LLM函数回调function calling（14周）
 - code23: mcp模型上下文协议实践（15周）
-- code24: 基于python的多模态项目（16周）
+- code24: 基于python的多模态应用（16周）
 - code25: 综合项目需求分析（17周）
 - code26: python综合项目（18周）
 
@@ -36,8 +36,8 @@
 - 1、Vibe Coding
 - 2、向量数据库概念与RAG架构（12周）
 - 3、函数回调与MCP模型上下文协议（14周）
-- 4、AI前沿技术专题（16周）
-- 5、基于python的多模态大模型应用（18周）
+- 4、AI前沿技术实践专题（16周）
+- 5、基于python的多模态大模型应用整合（18周）
 
 第二学期计划：
 ---
