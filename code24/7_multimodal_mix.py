@@ -203,36 +203,36 @@ def multimodal_qa(image_url: str, context: str, question: str):
 # ==================== 主函数 ====================
 
 if __name__ == "__main__":
-    # print("=" * 60)
-    # print("多模态混合使用演示")
-    # print("=" * 60)
-    #
-    # # --- 演示1：视频生文 ---
-    # print("\n" + "=" * 50)
-    # print("【演示1】视频生文 —— 视频内容理解")
-    # print("=" * 50)
-    #
-    # sample_video_url = "https://dashscope.oss-cn-beijing.aliyuncs.com/samples/video/robot.mp4"
-    # try:
-    #     video_to_text(
-    #         video_url=sample_video_url,
-    #         question="请详细描述这个视频的内容，包括场景、人物、动作和可能的情节",
-    #         model="qwen-vl-max",
-    #     )
-    # except Exception as e:
-    #     print(f"视频生文失败（可能视频URL不支持直接传入）: {e}")
-    #     print("尝试备用方案...")
-    #     video_to_text_by_frames(
-    #         video_url=sample_video_url,
-    #         question="请详细描述这个视频的内容",
-    #     )
-    #
-    # # --- 演示2：图文链式调用 ---
-    # print("\n" + "=" * 50)
-    # print("【演示2】图文链式调用 —— 从文本到图片再到理解")
-    # print("=" * 50)
-    #
-    # chain_text_to_image_to_text("一只戴着墨镜的柴犬在冲浪板上冲浪，卡通风格")
+    print("=" * 60)
+    print("多模态混合使用演示")
+    print("=" * 60)
+
+    # --- 演示1：视频生文 ---
+    print("\n" + "=" * 50)
+    print("【演示1】视频生文 —— 视频内容理解")
+    print("=" * 50)
+
+    sample_video_url = "https://dashscope.oss-cn-beijing.aliyuncs.com/samples/video/robot.mp4"
+    try:
+        video_to_text(
+            video_url=sample_video_url,
+            question="请详细描述这个视频的内容，包括场景、人物、动作和可能的情节",
+            model="qwen-vl-max",
+        )
+    except Exception as e:
+        print(f"视频生文失败（可能视频URL不支持直接传入）: {e}")
+        print("尝试备用方案...")
+        video_to_text_by_frames(
+            video_url=sample_video_url,
+            question="请详细描述这个视频的内容",
+        )
+
+    # --- 演示2：图文链式调用 ---
+    print("\n" + "=" * 50)
+    print("【演示2】图文链式调用 —— 从文本到图片再到理解")
+    print("=" * 50)
+
+    chain_text_to_image_to_text("一只戴着墨镜的柴犬在冲浪板上冲浪，卡通风格")
 
     # --- 演示3：多图对比分析 ---
     print("\n" + "=" * 50)
