@@ -28,7 +28,7 @@
 - code21: python代码搭建简易RAG案例（13周）
 - code22: LLM函数回调function calling（14周）
 - code23: mcp模型上下文协议实践（15周）
-- code24: 基于python的多模态应用（16周）
+- code24: 基于python的大模型多模态应用（16周）
 - code25: 综合项目需求分析（17周）
 - code26: python综合项目（18周）
 
